@@ -29,12 +29,14 @@ contract StudentRegistryV2 is Ownable {
 
     // Function For Paying
     function payFee() public payable{
-        require(msg.value > 0, "No ether sent");
-        owner.transfer(msg.value);
+        require(msg.value == 1, "No ether sent");
+        (bool success,) = address(this).call{value: msg.value}("");
+        require(success, "Failed to send ETH");
         // require(msg.value == 1 ether, "Oga you no go like pay");
         hasPaidMapping[msg.sender] = true;
     }
 
+    receive() external payable{}
 
     // Function for Registration
     function register(
