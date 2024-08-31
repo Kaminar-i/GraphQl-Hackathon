@@ -23,6 +23,8 @@ contract StudentRegistryV2 is Ownable {
     event registerStudent( address _studentAddress, string  _StName, uint8 _stAge );
     event authorizeStudentReg (address _studentAddress);
     event addStud(address _studentAddr);
+    event updateStudent(address _studentAddress, string  _StName, uint8 _stAge);
+
 
 
     // Function For Paying
@@ -195,6 +197,7 @@ contract StudentRegistryV2 is Ownable {
         currentStudent.name = _name;
         currentStudent.age = _age;
         currentStudent.studentAddr = _studentAddr;
+        emit updateStudent(_studentAddr, _name, _age);
         
      
 
