@@ -1,46 +1,46 @@
 {
-  "name": "se-2",
-  "version": "0.0.1",
+  "name": "graphql-hackathon",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/hardhat",
-      "packages/nextjs"
-    ]
-  },
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "account": "yarn workspace @se-2/hardhat account",
-    "chain": "yarn workspace @se-2/hardhat chain",
-    "fork": "yarn workspace @se-2/hardhat fork",
-    "deploy": "yarn workspace @se-2/hardhat deploy",
-    "verify": "yarn workspace @se-2/hardhat verify",
-    "hardhat-verify": "yarn workspace @se-2/hardhat hardhat-verify",
-    "compile": "yarn workspace @se-2/hardhat compile",
-    "generate": "yarn workspace @se-2/hardhat generate",
-    "flatten": "yarn workspace @se-2/hardhat flatten",
-    "hardhat:lint": "yarn workspace @se-2/hardhat lint",
-    "hardhat:lint-staged": "yarn workspace @se-2/hardhat lint-staged",
-    "hardhat:format": "yarn workspace @se-2/hardhat format",
-    "hardhat:test": "yarn workspace @se-2/hardhat test",
-    "test": "yarn hardhat:test",
-    "format": "yarn next:format && yarn hardhat:format",
-    "start": "yarn workspace @se-2/nextjs dev",
-    "next:lint": "yarn workspace @se-2/nextjs lint",
-    "next:format": "yarn workspace @se-2/nextjs format",
-    "next:check-types": "yarn workspace @se-2/nextjs check-types",
-    "next:build": "yarn workspace @se-2/nextjs build",
-    "next:serve": "yarn workspace @se-2/nextjs serve",
-    "postinstall": "husky install",
-    "precommit": "lint-staged",
-    "vercel": "yarn workspace @se-2/nextjs vercel",
-    "vercel:yolo": "yarn workspace @se-2/nextjs vercel:yolo"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "packageManager": "yarn@3.2.3",
+  "dependencies": {
+    "@apollo/client": "^3.11.5",
+    "dotenv": "^16.4.5",
+    "graphql": "^16.9.0",
+    "hardhat": "^2.22.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "devDependencies": {
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3"
-  },
-  "engines": {
-    "node": ">=18.17.0"
+    "@eslint/js": "^9.9.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-ignition": "^0.15.0",
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "chai": "^4.2.0",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "ethers": "^6.4.0",
+    "globals": "^15.9.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "solidity-coverage": "^0.8.0",
+    "typechain": "^8.3.0",
+    "vite": "^5.4.1"
   }
 }

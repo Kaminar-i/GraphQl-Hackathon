@@ -1,0 +1,44 @@
+type AddStud @entity(immutable: true) {
+  id: Bytes!
+  _studentAddr: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AuthorizeStudentReg @entity(immutable: true) {
+  id: Bytes!
+  _studentAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type FeePaid @entity(immutable: true) {
+  id: Bytes!
+  _studentAddress: Bytes! # address
+  _amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RegisterStudent @entity(immutable: true) {
+  id: Bytes!
+  _studentAddress: Bytes! # address
+  _StName: String! # string
+  _stAge: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpdateStudent @entity(immutable: true) {
+  id: Bytes!
+  _studentAddress: Bytes! # address
+  _StName: String! # string
+  _stAge: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

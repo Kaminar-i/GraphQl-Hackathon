@@ -1,0 +1,38 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: StudentRegistryV2
+    network: base-sepolia
+    source:
+      address: "0x4D02E8ed66A127557338C0b9bd014Ebf6B8cb752"
+      abi: StudentRegistryV2
+      startBlock: 14686452
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AddStud
+        - AuthorizeStudentReg
+        - FeePaid
+        - RegisterStudent
+        - UpdateStudent
+      abis:
+        - name: StudentRegistryV2
+          file: ./abis/StudentRegistryV2.json
+      eventHandlers:
+        - event: AddStud(address)
+          handler: handleAddStud
+        - event: AuthorizeStudentReg(address)
+          handler: handleAuthorizeStudentReg
+        - event: FeePaid(address,uint256)
+          handler: handleFeePaid
+        - event: RegisterStudent(address,string,uint8)
+          handler: handleRegisterStudent
+        - event: UpdateStudent(address,string,uint8)
+          handler: handleUpdateStudent
+      file: ./src/student-registry-v-2.ts

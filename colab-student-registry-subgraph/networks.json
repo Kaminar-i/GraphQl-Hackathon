@@ -1,0 +1,8 @@
+{
+  "base-sepolia": {
+    "StudentRegistryV2": {
+      "address": "0x4D02E8ed66A127557338C0b9bd014Ebf6B8cb752",
+      "startBlock": 14686452
+    }
+  }
+}

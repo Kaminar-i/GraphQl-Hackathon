@@ -1,0 +1,315 @@
+[
+  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "sent", "type": "uint256" },
+      { "internalType": "uint256", "name": "required", "type": "uint256" }
+    ],
+    "name": "InsufficientFee",
+    "type": "error"
+  },
+  { "inputs": [], "name": "NameIsEmpty", "type": "error" },
+  {
+    "inputs": [
+      { "internalType": "uint8", "name": "age", "type": "uint8" },
+      { "internalType": "uint8", "name": "expectedAge", "type": "uint8" }
+    ],
+    "name": "UnderAge",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_studentAddr",
+        "type": "address"
+      }
+    ],
+    "name": "AddStud",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_studentAddress",
+        "type": "address"
+      }
+    ],
+    "name": "AuthorizeStudentReg",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_studentAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "FeePaid",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_studentAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "_StName",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "_stAge",
+        "type": "uint8"
+      }
+    ],
+    "name": "RegisterStudent",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_studentAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "_StName",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "_stAge",
+        "type": "uint8"
+      }
+    ],
+    "name": "UpdateStudent",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "FEE_AMOUNT",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_studentAddr", "type": "address" }
+    ],
+    "name": "authorizeStudentRegistration",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "changeOwner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_studentAddr", "type": "address" }
+    ],
+    "name": "deleteStudent",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint8", "name": "_studentId", "type": "uint8" }
+    ],
+    "name": "getStudent",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "studentAddr",
+            "type": "address"
+          },
+          { "internalType": "string", "name": "name", "type": "string" },
+          { "internalType": "uint256", "name": "studentId", "type": "uint256" },
+          { "internalType": "uint8", "name": "age", "type": "uint8" },
+          { "internalType": "bool", "name": "hasPaid", "type": "bool" },
+          { "internalType": "bool", "name": "isAuthorized", "type": "bool" }
+        ],
+        "internalType": "struct StudentRegistryV2.Student",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_studentAddr", "type": "address" }
+    ],
+    "name": "getStudentFromMapping",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "studentAddr",
+            "type": "address"
+          },
+          { "internalType": "string", "name": "name", "type": "string" },
+          { "internalType": "uint256", "name": "studentId", "type": "uint256" },
+          { "internalType": "uint8", "name": "age", "type": "uint8" },
+          { "internalType": "bool", "name": "hasPaid", "type": "bool" },
+          { "internalType": "bool", "name": "isAuthorized", "type": "bool" }
+        ],
+        "internalType": "struct StudentRegistryV2.Student",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_studentAddr", "type": "address" }
+    ],
+    "name": "getStudentHasPaidMapping",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_studentAddr", "type": "address" }
+    ],
+    "name": "getStudentTemporaryMapping",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "studentAddr",
+            "type": "address"
+          },
+          { "internalType": "string", "name": "name", "type": "string" },
+          { "internalType": "uint256", "name": "studentId", "type": "uint256" },
+          { "internalType": "uint8", "name": "age", "type": "uint8" },
+          { "internalType": "bool", "name": "hasPaid", "type": "bool" },
+          { "internalType": "bool", "name": "isAuthorized", "type": "bool" }
+        ],
+        "internalType": "struct StudentRegistryV2.Student",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "hasPaidMapping",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "payFee",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_studentAddr", "type": "address" },
+      { "internalType": "string", "name": "_name", "type": "string" },
+      { "internalType": "uint8", "name": "_age", "type": "uint8" }
+    ],
+    "name": "register",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "studentsMapping",
+    "outputs": [
+      { "internalType": "address", "name": "studentAddr", "type": "address" },
+      { "internalType": "string", "name": "name", "type": "string" },
+      { "internalType": "uint256", "name": "studentId", "type": "uint256" },
+      { "internalType": "uint8", "name": "age", "type": "uint8" },
+      { "internalType": "bool", "name": "hasPaid", "type": "bool" },
+      { "internalType": "bool", "name": "isAuthorized", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "tempstudentsMapping",
+    "outputs": [
+      { "internalType": "address", "name": "studentAddr", "type": "address" },
+      { "internalType": "string", "name": "name", "type": "string" },
+      { "internalType": "uint256", "name": "studentId", "type": "uint256" },
+      { "internalType": "uint8", "name": "age", "type": "uint8" },
+      { "internalType": "bool", "name": "hasPaid", "type": "bool" },
+      { "internalType": "bool", "name": "isAuthorized", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_studentAddr", "type": "address" },
+      { "internalType": "string", "name": "_name", "type": "string" },
+      { "internalType": "uint8", "name": "_age", "type": "uint8" }
+    ],
+    "name": "updateStudentMapping",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdrawFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  { "stateMutability": "payable", "type": "receive" }
+]
